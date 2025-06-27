@@ -1,0 +1,6 @@
+from PIL import Image
+output_image = im_convert(target)
+Image.fromarray((output_image * 255).astype('uint8')).save("stylized_output.jpg")
+
+from google.colab import files
+files.download("stylized_output.jpg")
