@@ -1,0 +1,4 @@
+vgg = models.vgg19(pretrained=True).features.to(device).eval()
+
+for param in vgg.parameters():
+    param.requires_grad = False
