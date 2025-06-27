@@ -1,0 +1,12 @@
+def im_convert(tensor):
+    image = tensor.to("cpu").clone().detach()
+    image = image.squeeze()
+    image = image.numpy().transpose(1, 2, 0)
+    image = image * [0.229, 0.224, 0.225] + [0.485, 0.456, 0.406]  # de-normalize
+    image = image.clip(0, 1)
+    return image
+
+plt.imshow(im_convert(target))
+plt.axis("off")
+plt.title("Stylized Image")
+plt.show()
